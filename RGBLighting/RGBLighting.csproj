@@ -111,8 +111,10 @@
     <Compile Include="Util\IntBounce.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util\Math.cs" />
+    <Compile Include="Util\IntPath.cs" />
+    <Compile Include="Util\MathUtil.cs" />
     <Compile Include="Util\RGBRainbow.cs" />
+    <Compile Include="Util\RGBRainbowOld.cs" />
     <Compile Include="Util\Unmanaged.cs" />
   </ItemGroup>
   <ItemGroup>

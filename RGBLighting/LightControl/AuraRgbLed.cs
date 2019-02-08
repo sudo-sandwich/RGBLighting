@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RGBLighting.LightControl {
-    public class AuraRgbLed : IRgbLed<AuraLightController, AuraRgbLed> {
-        public AuraLightController Controller { get; private set; }
+    public class AuraRgbLed : IRgbLed {
+        public ILightController Controller { get; private set; }
         public int[] rgb {
             get => new int[] { RawLed.Red, RawLed.Green, RawLed.Blue };
             set {

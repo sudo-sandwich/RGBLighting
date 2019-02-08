@@ -13,10 +13,6 @@ namespace RGBLighting.CUESDKWrapper {
         public int sdkProtocolVersion;
         public int serverProtocolVersion;
         public byte breakingChanges;
-        /*
-        [MarshalAs(UnmanagedType.I1)]
-        public bool breakingChanges;
-        */
     }
 
     public class CorsairProtocolDetails {

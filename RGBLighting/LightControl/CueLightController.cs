@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RGBLighting.LightControl {
-    public class CueLightController : ILightController<CueLightController, CueRgbLed> {
-        public CueRgbLed[] Leds { get; private set; }
+    public class CueLightController : ILightController {
+        public IRgbLed[] Leds { get; private set; }
         public bool UpdateRequired { get; set; }
         
         public CorsairDeviceInfo[] Devices { get; private set; }
@@ -45,9 +45,10 @@ namespace RGBLighting.LightControl {
             if (UpdateRequired) {
                 CorsairLedColor[] corsairLedColors = new CorsairLedColor[Leds.Length];
                 for (int i = 0; i < Leds.Length; i++) {
-                    corsairLedColors[i] = Leds[i].RawLed;
+                    corsairLedColors[i] = ((CueRgbLed)Leds[i]).RawLed;
                 }
                 CueSdkWrapper.SetLedsColorsAsync(corsairLedColors.Length, corsairLedColors);
+                //CueSdkWrapper.SetLedsColors(corsairLedColors.Length, corsairLedColors);
             }
         }
     }

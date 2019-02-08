@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RGBLighting.LightControl {
-    public class AuraLightController : ILightController<AuraLightController, AuraRgbLed> {
-        public AuraRgbLed[] Leds { get; private set; }
+    public class AuraLightController : ILightController {
+        public IRgbLed[] Leds { get; private set; }
         public bool UpdateRequired { get; set; }
 
         public AuraDevice[] Devices { get; private set; }
@@ -33,7 +33,7 @@ namespace RGBLighting.LightControl {
                     devices.Add(newWrappedDevice);
                     foreach(IAuraRgbLight rawLed in rawDevice.Lights) {
                         AuraRgbLed newWrappedLed = new AuraRgbLed(this, rawLed, newWrappedDevice, Color.BLACK);
-                        newWrappedDevice.Leds.Add(newWrappedLed);
+                        //newWrappedDevice.Leds.Add(newWrappedLed);
                         leds.Add(newWrappedLed);
                     }
                 }

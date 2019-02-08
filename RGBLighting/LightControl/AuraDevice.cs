@@ -8,12 +8,11 @@ using System.Threading.Tasks;
 namespace RGBLighting.LightControl {
     public class AuraDevice {
         public IAuraSyncDevice RawDevice { get; private set; }
-        public IList<AuraRgbLed> Leds { get; private set; }
+        //public IList<AuraRgbLed> Leds { get; private set; }
         public bool UpdateRequired { get; set; }
 
-        public AuraDevice(IAuraSyncDevice device, params AuraRgbLed[] leds) {
+        public AuraDevice(IAuraSyncDevice device) {
             RawDevice = device;
-            Leds = new List<AuraRgbLed>(leds);
             UpdateRequired = true;
         }
 

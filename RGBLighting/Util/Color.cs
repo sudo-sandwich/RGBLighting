@@ -23,12 +23,16 @@ namespace RGBLighting.Util {
             this.rgb = rgb;
         }
 
+        public override string ToString() {
+            return "(" + r + ", " + g + ", " + b + ")";
+        }
+
         //lerps from one color to another. distance will be clamped between 0 and 1.
         public static Color Lerp(Color start, Color end, float distance) {
-            distance = Math.Clamp(distance, 0, 1);
+            distance = MathUtil.Clamp(distance, 0, 1);
             int[] newRgb = new int[3];
             for (int i = 0; i < 3; i++) {
-                newRgb[i] = Math.LerpInt(start.rgb[i], end.rgb[i], distance);
+                newRgb[i] = MathUtil.LerpInt(start.rgb[i], end.rgb[i], distance);
             }
             return new Color(newRgb);
         }

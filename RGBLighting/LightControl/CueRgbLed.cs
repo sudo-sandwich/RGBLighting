@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RGBLighting.LightControl {
-    public class CueRgbLed : IRgbLed<CueLightController, CueRgbLed> {
-        public CueLightController Controller { get; private set; }
+    public class CueRgbLed : IRgbLed {
+        public ILightController Controller { get; private set; }
 
         public int[] rgb {
             get {
@@ -48,11 +48,7 @@ namespace RGBLighting.LightControl {
 
         public CueRgbLed(CueLightController controller, CorsairLedId ledId, int r, int g, int b) {
             Controller = controller;
-            rawLed = new CorsairLedColor();
-            rawLed.ledId = ledId;
-            rawLed.r = r;
-            rawLed.g = g;
-            rawLed.b = b;
+            rawLed = new CorsairLedColor(ledId, r, g, b);
         }
         public CueRgbLed(CueLightController controller, CorsairLedId ledId, int[] rgb) : this(controller, ledId, rgb[0], rgb[1], rgb[2]) { }
         public CueRgbLed(CueLightController controller, CorsairLedId ledId, Color color) : this(controller, ledId, color.r, color.g, color.b) { }

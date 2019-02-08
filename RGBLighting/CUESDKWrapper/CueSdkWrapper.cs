@@ -14,7 +14,7 @@ namespace RGBLighting.CUESDKWrapper {
         }
 
         [DllImport("CUESDK.x64_2015.dll", EntryPoint = "CorsairSetLedsColors", CallingConvention = CallingConvention.Cdecl)]
-        public static extern bool _SetLedsColors(int size, CorsairLedColor[] ledsColors);
+        public static extern bool SetLedsColors(int size, CorsairLedColor[] ledsColors);
 
         [DllImport("CUESDK.x64_2015.dll", EntryPoint = "CorsairSetLedsColorsAsync", CallingConvention = CallingConvention.Cdecl)]
         public static extern bool SetLedsColorsAsync(int size, CorsairLedColor[] ledsColors, IntPtr callbackType, IntPtr context);

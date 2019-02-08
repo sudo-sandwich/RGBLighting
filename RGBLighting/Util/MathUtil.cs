@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace RGBLighting.Util {
-    public static class Math {
+    public static class MathUtil {
         public static T Clamp<T>(T value, T min, T max) where T : IComparable {
             if (value.CompareTo(min) < 0) {
                 return min;
